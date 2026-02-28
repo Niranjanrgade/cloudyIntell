@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Evaluator-optimizer loop is explicit, with accept/reject transitions and feedback paths.
+- Domain orchestration is defined (supervisor delegation + reducer/coordinator synthesis).
+- Validation design is RAG-grounded with authoritative vendor evidence and remediation output.
+- AWS and Azure flows are separated with provider-specific constraints and checks.
+- UI/interaction plan includes graph-state transparency and agent hand-off visibility.
+- Documentation deliverables are enumerated (feature docs, runbook/quickstart impact).
 
 ## Project Structure
 

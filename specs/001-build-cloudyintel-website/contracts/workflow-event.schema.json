@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloudyintel.local/contracts/workflow-event.schema.json",
+  "title": "WorkflowEvent",
+  "type": "object",
+  "required": [
+    "event_id",
+    "run_id",
+    "provider",
+    "event_type",
+    "timestamp",
+    "node"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["aws", "azure"]
+    },
+    "iteration": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "state_transition",
+        "handoff",
+        "validation_result",
+        "retry",
+        "failure",
+        "completion"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "state"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "supervisor",
+            "domain_generator",
+            "reducer",
+            "validator",
+            "optimizer"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": ["idle", "active", "waiting", "completed", "failed"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

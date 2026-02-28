@@ -89,11 +89,19 @@
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-006**: System MUST define whether scope is AWS, Azure, or both, and MUST preserve
+  provider-specific processing and validation paths.
+- **FR-007**: System MUST define validation behavior, including evidence source expectations
+  for any RAG-grounded checks.
+- **FR-008**: System MUST define user-visible workflow or state transparency requirements
+  whenever agent orchestration is involved.
+- **FR-009**: System MUST include documentation deliverables for implementation, operations,
+  and user understanding.
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-010**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-011**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 

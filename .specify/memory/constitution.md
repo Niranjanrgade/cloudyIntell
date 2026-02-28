@@ -1,50 +1,107 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: template (unversioned) → 1.0.0
+- Modified principles:
+	- Principle 1 (template) → I. Recursive Evaluator-Optimizer Architecture
+	- Principle 2 (template) → II. Domain-Scoped Multi-Agent Orchestration
+	- Principle 3 (template) → III. Fact-Based Validation with RAG Evidence (NON-NEGOTIABLE)
+	- Principle 4 (template) → IV. Provider-Specific Fidelity and Separation
+	- Principle 5 (template) → V. Transparent State and Documentation by Default
+- Added sections:
+	- Operational Constraints
+	- Development Workflow & Quality Gates
+- Removed sections:
+	- None
+- Templates requiring updates:
+	- ✅ updated: .specify/templates/plan-template.md
+	- ✅ updated: .specify/templates/spec-template.md
+	- ✅ updated: .specify/templates/tasks-template.md
+	- ⚠ pending: .specify/templates/commands/*.md (directory not present)
+	- ✅ reviewed: README.md (no references present)
+- Follow-up TODOs:
+	- None
+-->
+
+# CloudyIntel Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Recursive Evaluator-Optimizer Architecture
+All solution generation MUST run through an explicit evaluator-optimizer loop.
+Generated architecture outputs MUST be validated, and failed validations MUST return
+actionable feedback to the generator before any output is marked accepted.
+Rationale: Cloud architectures are high-impact systems where first-pass generation is
+insufficiently reliable without structured refinement.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Domain-Scoped Multi-Agent Orchestration
+The Architect Supervisor MUST decompose requests into domain tasks and delegate them to
+specialized agents for compute, storage, networking, and databases. A reducer/coordinator
+MUST synthesize domain outputs into one coherent architecture decision set.
+Rationale: Domain specialization improves precision while preserving a single, integrated
+solution contract for users.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Fact-Based Validation with RAG Evidence (NON-NEGOTIABLE)
+Validation agents MUST ground findings in authoritative vendor documentation retrieved
+through RAG. Every rejection or critical warning MUST include traceable evidence and
+specific remediation guidance. Unverifiable claims MUST NOT be used as validation criteria.
+Rationale: Evidence-backed validation is required to prevent hallucinated architecture advice.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Provider-Specific Fidelity and Separation
+AWS and Azure processing loops MUST remain provider-specific for generation and validation.
+Cross-provider abstractions MAY be presented to users only after provider-compliant outputs
+have been independently verified.
+Rationale: Provider services, limits, and best practices differ materially and require distinct
+reasoning paths.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Transparent State and Documentation by Default
+The system UI MUST expose workflow state, active nodes, and hand-offs in a graph-aligned
+view. All implemented features, orchestration rules, validation policies, and interfaces MUST
+include descriptive, easy-to-read documentation at delivery time.
+Rationale: Architect users need observability into system reasoning and maintainers need
+clear, persistent operational knowledge.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Operational Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- LangGraph state transitions MUST be explicit, deterministic, and auditable.
+- CoPilotKit interactions MUST reflect real graph state and MUST NOT present synthetic
+	hand-off events as completed execution.
+- Architecture acceptance MUST require both synthesis completeness and validation pass state.
+- Any fallback behavior (timeouts, unavailable retrievers, degraded validation) MUST be
+	surfaced to the user as a non-silent status.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow & Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+1. Specifications MUST define user stories, provider scope, validation expectations,
+	 documentation deliverables, and measurable outcomes.
+2. Plans MUST pass a Constitution Check that verifies evaluator-optimizer loops,
+	 domain delegation, RAG evidence paths, provider separation, and UI transparency.
+3. Tasks MUST include work for generation, validation, integration, and user-facing
+	 documentation updates.
+4. Pull requests MUST include compliance notes for each core principle and MUST identify
+	 any intentional deviations with rationale.
+5. Releases MUST include an updated quickstart or equivalent runbook when behavior,
+	 graph flow, or validation policy changes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution is the highest-priority engineering policy for CloudyIntel. Any conflicting
+guidance in plans, tasks, or local conventions is superseded by this document.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendment process:
+- Propose changes via pull request that includes: motivation, principle or section deltas,
+	migration impact, and template synchronization updates.
+- Approval requires at least one maintainer review and explicit confirmation that dependent
+	templates and guidance files were checked.
+- Ratification occurs on merge to the default branch.
+
+Versioning policy:
+- MAJOR: Removes or redefines a principle or governance rule in a backward-incompatible way.
+- MINOR: Adds a new principle/section or materially expands required practices.
+- PATCH: Clarifies wording, fixes ambiguity, or performs non-semantic refinements.
+
+Compliance review expectations:
+- Every implementation plan and pull request MUST include a constitution compliance check.
+- Non-compliance MUST block merge unless a documented exception is approved by maintainers.
+- Exception records MUST include scope, risk, owner, and expiry or review date.
+
+**Version**: 1.0.0 | **Ratified**: 2026-02-28 | **Last Amended**: 2026-02-28
